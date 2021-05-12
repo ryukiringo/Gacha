@@ -17,7 +17,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        number = Int.random(in: 0...10)
+        number = Int.random(in: 1...10)
         if number >= 9 {
             backgroundImageView.image = UIImage(named: "bg_gold")
             showMonster(number: number)
