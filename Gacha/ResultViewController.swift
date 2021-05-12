@@ -17,16 +17,16 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        number = Int.random(in: 0...9)
-        if number == 9 {
+        number = Int.random(in: 0...10)
+        if number >= 9 {
             backgroundImageView.image = UIImage(named: "bg_gold")
-            monsterImageView.image = UIImage(named: "monster010")
+            showMonster(number: number)
         } else if number > 7 {
             backgroundImageView.image = UIImage(named: "bg_red")
-            monsterImageView.image = UIImage(named: "monster006")
+            showMonster(number: number)
         } else {
             backgroundImageView.image = UIImage(named: "bg_blue")
-            monsterImageView.image = UIImage(named: "monster003")
+            showMonster(number: number)
         }
         
         // Do any additional setup after loading the view.
@@ -36,6 +36,13 @@ class ResultViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+    func showMonster(number: Int) {
+        if number == 10 {
+            monsterImageView.image = UIImage(named: "monster010")
+        } else {
+            monsterImageView.image = UIImage(named: "monster00\(number)")
+        }
+    }
     /*
     // MARK: - Navigation
 
